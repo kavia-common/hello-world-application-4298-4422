@@ -22,9 +22,14 @@ def button(
     value: Optional[str] = None,
     title: Optional[str] = None,
     aria_label: Optional[str] = None,
+    # New: full-width / responsive flags
+    block: bool = False,
+    block_sm: bool = False,
+    block_md: bool = False,
+    block_lg: bool = False,
 ) -> Dict:
     """
-    Render a reusable, accessible button/anchor with variants, icons, and states.
+    Render a reusable, accessible button/anchor with variants, icons, states, and block/responsive utilities.
 
     Parameters:
     - button_label: Visible text for the button.
@@ -41,6 +46,8 @@ def button(
     - name, value: form attributes for <button>.
     - title: optional title attribute.
     - aria_label: optional aria-label attribute. When provided, will be applied.
+    - block: when True, make the button full-width (100%).
+    - block_sm|block_md|block_lg: responsive full-width at the respective breakpoint.
 
     Returns:
     A dict context for the 'components/button.html' template.
@@ -60,6 +67,17 @@ def button(
         f"ui-btn--{variant}",
         f"ui-btn--{size}",
     ]
+
+    # Block utilities
+    if block:
+        classes.append("btn-block")
+    if block_sm:
+        classes.append("sm:btn-block")
+    if block_md:
+        classes.append("md:btn-block")
+    if block_lg:
+        classes.append("lg:btn-block")
+
     if disabled:
         classes.append("is-disabled")
     if loading:

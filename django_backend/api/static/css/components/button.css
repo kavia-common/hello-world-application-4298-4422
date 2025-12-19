@@ -24,7 +24,7 @@
 }
 
 .ui-btn {
-  display: inline-flex;
+  display: inline-flex; /* mobile-first: inline-auto width */
   align-items: center;
   justify-content: center;
   gap: var(--ui-gap);
@@ -53,6 +53,23 @@
 .ui-btn--lg {
   padding: var(--ui-padding-y-lg) var(--ui-padding-x-lg);
   font-size: var(--ui-font-size-lg);
+}
+
+/* Block utility (full-width) */
+.btn-block {
+  display: inline-flex;
+  width: 100%;
+}
+
+/* Responsive block utilities */
+@media (min-width: 640px) {
+  .sm\:btn-block { display: inline-flex; width: 100%; }
+}
+@media (min-width: 768px) {
+  .md\:btn-block { display: inline-flex; width: 100%; }
+}
+@media (min-width: 1024px) {
+  .lg\:btn-block { display: inline-flex; width: 100%; }
 }
 
 /* Variants */

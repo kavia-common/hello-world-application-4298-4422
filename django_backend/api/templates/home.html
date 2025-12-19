@@ -3,7 +3,7 @@
 
 {% block content %}
 <h1>Hello, World!</h1>
-<p class="muted">Below are examples of the global button with new variants, icons, and states.</p>
+<p class="muted">Below are examples of the global button with new variants, icons, states, and block/responsive behaviors.</p>
 
 <h2>Variants</h2>
 <div class="demo-row">
@@ -38,19 +38,43 @@
   {% button "Loading Link" href="#" loading=True variant="link" %}
 </div>
 
+<h2>Block and Responsive</h2>
+<div class="demo-row" style="flex-direction: column; width: 100%; max-width: 520px;">
+  <div class="muted">Inline (default, auto width):</div>
+  {% button "Inline button (default)" variant="primary" %}
+
+  <div class="muted" style="margin-top: .5rem;">Full-width (block=True):</div>
+  {% button "Full-width primary" variant="primary" block=True %}
+
+  <div class="muted" style="margin-top: .5rem;">Responsive full-width (block_md=True): becomes full-width at ≥768px:</div>
+  {% button "Responsive block at md+" variant="secondary" block_md=True %}
+
+  <div class="muted" style="margin-top: .5rem;">Responsive full-width (block_sm=True): becomes full-width at ≥640px:</div>
+  {% button "Responsive block at sm+" variant="outline" block_sm=True %}
+
+  <div class="muted" style="margin-top: .5rem;">Responsive full-width (block_lg=True): becomes full-width at ≥1024px:</div>
+  {% button "Responsive block at lg+" variant="success" block_lg=True %}
+</div>
+
 <h2>Button Groups</h2>
-<div class="demo-row">
+<div class="demo-row" style="flex-direction: column; width: 100%; max-width: 520px;">
   {# 1) Horizontal button group with mixed variants #}
-  {% button_group
-      items=[
-        {"label":"Save","variant":"primary"},
-        {"label":"Preview","variant":"secondary"},
-        {"label":"Share","variant":"success"}
-      ]
-      orientation="horizontal"
-      size="md"
-      aria_label="Document actions"
-  %}
+  <div>
+    {% button_group
+        items=[
+          {"label":"Save","variant":"primary"},
+          {"label":"Preview","variant":"secondary"},
+          {"label":"Share","variant":"success"}
+        ]
+        orientation="horizontal"
+        size="md"
+        aria_label="Document actions"
+    %}
+  </div>
+  <div class="muted" style="margin-top:.5rem;">Note: Block is typically not used within groups. Use a standalone block button below a group for emphasis:</div>
+  <div style="margin-top:.25rem;">
+    {% button "Standalone full-width call to action" variant="primary" block=True %}
+  </div>
 </div>
 
 <div class="demo-row">
