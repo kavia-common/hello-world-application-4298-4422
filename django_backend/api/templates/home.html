@@ -38,4 +38,53 @@
   {% button "Loading Link" href="#" loading=True variant="link" %}
 </div>
 
+<h2>Button Groups</h2>
+<div class="demo-row">
+  {# 1) Horizontal button group with mixed variants #}
+  {% button_group
+      items=[
+        {"label":"Save","variant":"primary"},
+        {"label":"Preview","variant":"secondary"},
+        {"label":"Share","variant":"success"}
+      ]
+      orientation="horizontal"
+      size="md"
+      aria_label="Document actions"
+  %}
+</div>
+
+<div class="demo-row">
+  {# 2) Vertical button group #}
+  {% button_group
+      items=[
+        {"label":"Top","variant":"outline"},
+        {"label":"Middle","variant":"ghost"},
+        {"label":"Bottom","variant":"secondary"}
+      ]
+      orientation="vertical"
+      size="sm"
+      aria_label="Vertical group"
+  %}
+</div>
+
+<h2>Toolbar</h2>
+<div class="demo-row">
+  {# 3) Toolbar with two groups #}
+  {% toolbar
+     groups=[
+       {"items":[
+          {"label":"Bold","variant":"secondary","size":"sm"},
+          {"label":"Italic","variant":"secondary","size":"sm"},
+          {"label":"Underline","variant":"secondary","size":"sm"}
+        ], "orientation":"horizontal", "size":"sm", "aria_label":"Text styles"},
+       {"items":[
+          {"label":"Left","variant":"outline"},
+          {"label":"Center","variant":"outline"},
+          {"label":"Right","variant":"outline"}
+        ], "orientation":"horizontal", "size":"md", "aria_label":"Alignment"}
+     ]
+     aria_label="Editor toolbar"
+  %}
+</div>
+
 {% endblock %}
